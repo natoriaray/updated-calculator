@@ -28,12 +28,16 @@ calculationDisplay.value = '';
         console.log("equal sign was pressed")
         if (addClicked === true) {
           calculationDisplay.value = Number(firstVal) + Number(nextVal);
+          decimalUsed = false;
         } else if (subClicked === true) {
           calculationDisplay.value = Number(firstVal) - Number(nextVal);
+          decimalUsed = false;
         } else if (divClicked === true) {
           calculationDisplay.value = Number(firstVal) / Number(nextVal);
+          decimalUsed = false;
         } else if (multiClicked === true) {
           calculationDisplay.value = Number(firstVal) * Number(nextVal);
+         decimalUsed = false;
         }             
 //if an initial value is clicked or an operator, an action will happen      
       } else if (calButton.id === "num" && operatorClicked === false) {
@@ -42,7 +46,7 @@ calculationDisplay.value = '';
         console.log(firstVal)        
 //get next value if operation has been clicked       
       } else if (calButton.id === "num" && operatorClicked === true && decimalUsed === true) {
-        document.getElementById("decimal").disabled = false;
+        document.getElementById("decimal").disabled = true;
         calculationDisplay.value = calculationDisplay.value + newVal;
         nextVal = calculationDisplay.value;
         console.log(nextVal)
