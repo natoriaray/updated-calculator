@@ -1,5 +1,5 @@
 body {
-  background-color: #f3ca7c;
+  background-color: #fdec71;
 }
 
 .frame {
@@ -8,7 +8,8 @@ body {
   padding: 30px;
   height: 500px;
   width: 400px;
-  background-color: #d0e3ea;
+  background-color: #d4fefe;
+  margin: 0 auto;
   
 }
 
@@ -20,12 +21,13 @@ h1 {
 
 input {
   height: 60px;
-  background-color: #e8e8e4;
+  background-color: #fffeff;
   border-style: solid;
   border-color: #c7c7c3;
   border-width: 2px;
   padding-bottom: 20px;
   caret-color: transparent;
+  text-align: right;
 }
 
 .btnsContainer {
@@ -38,8 +40,21 @@ input {
 
 }
 
-.button {
-  
+button {
+  background-color: #fffeff;
+  border-style: solid;
+  border-color: #c7c7c3;
+  border-width: 2px;
+  font-size: 30px;
+  font-color: 
+}
+
+.button:hover {
+   background-color: red;
+}
+
+.button:active {
+  transform: translateY(1px);
 }
 
 .equalSign {
