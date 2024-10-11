@@ -6,7 +6,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
     <body>
-      <div class="frame">
+  
+  <div class="container">
+      <h1>Calculator</h1>
+      <div class="togBtnContainer">
+        <p> Basic</p>
+        <label class="togBtn"> 
+          <input type="checkbox">
+          <span class="toggle"></span>
+        </label>
+      </div>
+      
+     <div class="frame">
         
         <input type="text "class="display" value="" disabled></input>
 
@@ -30,6 +41,8 @@
           <button type="button" class="btn" id="c" onclick="clearDisplay()">C</button>
         </div>
       </div>
+  </div>
+      
     </body>
 <script src="script.js"></script>
 
