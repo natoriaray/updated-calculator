@@ -1,88 +1,83 @@
-var calculationDisplay = document.querySelector('.display');
-var operatorClicked = false;
-var addClicked;
-var divClicked;
-var multiClicked;
-var subClicked;
-var firstVal;
-var nextVal;
-var equalClicked;
-var decimalUsed;
+let calculationDisplay = document.querySelector('.display');
+
+const operators = ['+', '-', '*', '/'];
+let operatorClicked = false;
+let previousInput = '';
+let nextValue = '';
+
 calculationDisplay.value = ''; 
 
+const btnClicked = function(btn) {
+  if (operatorClicked === false) {
+    console.log('oh no')
+    startInput(btn);
+  } else {
+    console.log(operatorClicked === false)
+    nextInput(previousInput, operators, btn);
+  }
+};
 
-//when button is clicked an action will happen
-    document.querySelectorAll('.btn').forEach( (calButton) => calButton.addEventListener('click', function() {
-      
-      var newVal = calButton.value; 
-      
-      if (calButton.value === ".") {
-        decimalUsed = true;
-        calculationDisplay.value = calculationDisplay.value + '.';
-        document.getElementById("decimal").disabled = true;
-        console.log(calculationDisplay.value)
-      }
-      
-//equal sign is pressed
-      if (calButton.value === "=") {
-        console.log("equal sign was pressed")
-        if (addClicked === true) {
-          calculationDisplay.value = Number(firstVal) + Number(nextVal);
-          decimalUsed = false;
-        } else if (subClicked === true) {
-          calculationDisplay.value = Number(firstVal) - Number(nextVal);
-          decimalUsed = false;
-        } else if (divClicked === true) {
-          calculationDisplay.value = Number(firstVal) / Number(nextVal);
-          decimalUsed = false;
-        } else if (multiClicked === true) {
-          calculationDisplay.value = Number(firstVal) * Number(nextVal);
-         decimalUsed = false;
-        }             
-//if an initial value is clicked or an operator, an action will happen      
-      } else if (calButton.id === "num" && operatorClicked === false) {
-        calculationDisplay.value = calculationDisplay.value + newVal;
-        firstVal = calculationDisplay.value;
-        console.log(firstVal)        
-//get next value if operation has been clicked       
-      } else if (calButton.id === "num" && operatorClicked === true && decimalUsed === true) {
-        document.getElementById("decimal").disabled = true;
-        calculationDisplay.value = calculationDisplay.value + newVal;
-        nextVal = calculationDisplay.value;
-        console.log(nextVal)
-      } else if (calButton.id === "num" && operatorClicked === true) {
-        document.getElementById("decimal").disabled = false;
+const startInput = function(btnNum) {
+  if (operators.includes(btnNum.value)) {
+    return;
+  } else if (btnNum.value === ".") {
+    calculationDisplay.value = calculationDisplay.value + "0" + btnNum.value;
+    previousInput = calculationDisplay.value;
+  } else {
+    calculationDisplay.value = calculationDisplay.value + btnNum.value;
+    previousInput = calculationDisplay.value;
+  } 
+};
+
+const nextInput = function(prevInput, arr, btn) {
+  if (operators.includes(btn)) {
+    return
+  } else {
+    if (nextValue === '') {
         calculationDisplay.value = '';
-        calculationDisplay.value = calculationDisplay.value + newVal;
-        nextVal = calculationDisplay.value;
-        console.log(nextVal)
- //if an operator is clicked        
-      } else if (calButton.id === "operator") {
-        console.log('an operator was clicked')
-        operatorClicked = true;
-        decimalUsed = false;
+        if (btn.value === '.') {
+          calculationDisplay.value = calculationDisplay.value + "0" + btn.value;
+          nextValue = calculationDisplay.value;
+          console.log(nextValue)
+        } else {
+          calculationDisplay.value = calculationDisplay.value + btn.value;
+          nextValue = calculationDisplay.value;
+        }
+    } else {
+      calculationDisplay.value = calculationDisplay.value + btn.value;
+      nextValue = calculationDisplay.value;
+    }
+  }
  
-//logging which operator is clicked
-          if (calButton.value === "*") {
-            multiClicked = true;   
-          } else if (calButton.value === "+") {
-            addClicked = true;            
-          } else if (calButton.value === "-") {
-            subClicked = true;            
-          } else if (calButton.value === "/"){
-            divClicked = true;            
-          }
+};
 
-      } else if (calButton.id === "c") {
-        calculationDisplay.value = '';
-        operatorClicked = false;
-        addClicked = false;
-        divClicked = false;
-        multiClicked = false;
-        subClicked = false;
-        firstVal = '';
-        nextVal = '';
-        document.getElementById("decimal").disabled = false;
-      }
-    }))
+const equalClicked = function(prev, next) {
+   if (operatorClicked === '+') {
+     calculationDisplay.value = Number(prev) + Number(next);
+   } else if (operatorClicked === '-') {
+      calculationDisplay.value = Number(prev) - Number(next);
+   } else if (operatorClicked === '/') {
+      calculationDisplay.value = Number(prev) / Number(next);
+   } else if (operatorClicked === '*') {
+      calculationDisplay.value = Number(prev) * Number(next);
+   };    
+  previousInput = calculationDisplay.value;
+  nextValue = '';
+  
+};
 
+const opClicked = function(opr) {
+  if (operatorClicked) {
+    equalClicked(previousInput, nextValue);
+    operatorClicked = opr.value;
+  } else {
+    operatorClicked = opr.value;
+  }
+};
+
+const clearDisplay = function() {
+  calculationDisplay.value = '';
+  previousInput ='';
+  nextValue = '';
+  operatorClicked = false;
+};
