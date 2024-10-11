@@ -11,27 +11,26 @@
         <input type="text "class="display" value="" disabled></input>
 
         <div class="btnsContainer">
-          <button type="button" class="btn" id="operator" value="/">/</button>
-          <button type="button" class="btn" id="operator" value="*">*</button>
-          <button type="button" class="btn" id="operator" value="-">-</button>
-          <button type="button" class="btn" id="operator" value="+">+</button>
-          <button type="button" class="btn" id="num" value="7">7</button>
-          <button type="button" class="btn" id="num" value="8">8</button>
-          <button type="button" class="btn" id="num" value="9">9</button>
-          <button type="button" class="btn" id="num" value="4">4</button>
-          <button type="button" class="btn" id="num" value="5">5</button>
-          <button type="button" class="btn" id="num" value="6">6</button>
-          <button type="button" class="btn" id="num" value="1">1</button>
-          <button type="button" class="btn" id="num" value="2">2</button>
-          <button type="button" class="btn equalSign" value="=">=</button>
-          <button type="button" class="btn" id="num" value="3">3</button>
-          <button type="button" class="btn" id="decimal" value=".">.</button>
-          <button type="button" class="btn" id="num" value="0">0</button>
-          <button type="button" class="btn" id="c">C</button>
+          <button type="button" class="btn" id="operator" value="/" onclick="opClicked(this)">/</button>
+          <button type="button" class="btn" id="operator" value="*" onclick="opClicked(this)">*</button>
+          <button type="button" class="btn" id="operator" value="-" onclick="opClicked(this)">-</button>
+          <button type="button" class="btn" id="operator" value="+" onclick="opClicked(this)">+</button>
+          <button type="button" class="btn btnNum" id="num" value="7" onclick="btnClicked(this)">7</button>
+          <button type="button" class="btn btnNum" id="num" value="8" onclick="btnClicked(this)">8</button>
+          <button type="button" class="btn btnNum" id="num" value="9" onclick="btnClicked(this)">9</button>
+          <button type="button" class="btn btnNum" id="num" value="4" onclick="btnClicked(this)">4</button>
+          <button type="button" class="btn btnNum" id="num" value="5" onclick="btnClicked(this)">5</button>
+          <button type="button" class="btn btnNum" id="num" value="6" onclick="btnClicked(this)">6</button>
+          <button type="button" class="btn btnNum" id="num" value="1" onclick="btnClicked(this)">1</button>
+          <button type="button" class="btn btnNum" id="num" value="2" onclick="btnClicked(this)">2</button>
+          <button type="button" class="btn equalSign" value="=" onclick="equalClicked(previousInput, nextValue)">=</button>
+          <button type="button" class="btn btnNum" id="num" value="3" onclick="btnClicked(this)">3</button>
+          <button type="button" class="btn" id="decimal" value="." onclick="btnClicked(this)">.</button>
+          <button type="button" class="btn btnNum" id="num" value="0" onclick="btnClicked(this)">0</button>
+          <button type="button" class="btn" id="c" onclick="clearDisplay()">C</button>
         </div>
       </div>
     </body>
-
 <script src="script.js"></script>
 
 </html>
