@@ -1,5 +1,18 @@
 body {
-  background-color: #fdec71;
+  background-color: #b5e2fa;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  margin: 0;
+  padding: 20px 0 20px 0;
 }
 
 .frame {
@@ -8,23 +21,19 @@ body {
   padding: 30px;
   height: 500px;
   width: 400px;
-  background-color: #d4fefe;
-  margin: 0 auto;
-  
-}
-
-h1 {
-  font-size: 50px;
-  height: 60px;
-  
+  background-color: #0fa3b1;
+  border-style: solid;
+  border-color: #f7a072;
+  border-width: 1px;
+  margin-right: 10px;
 }
 
 input {
   height: 60px;
   background-color: #fffeff;
   border-style: solid;
-  border-color: #c7c7c3;
-  border-width: 2px;
+  border-color: #f7a072;
+  border-width: 1px;
   padding-bottom: 20px;
   caret-color: transparent;
   text-align: right;
@@ -37,14 +46,13 @@ input {
   justify-content: space-between;
   grid-template-rows: 70px 70px 70px 70px 70px;
   gap: 10px;
-
 }
 
 button {
-  background-color: #fffeff;
+  background-color: #f9f7f3;
   border-style: solid;
-  border-color: #c7c7c3;
-  border-width: 2px;
+  border-color: #f7a072;
+  border-width: 1px;
   font-size: 30px;
   font-color: 
 }
@@ -64,4 +72,65 @@ button {
 .equalSign {
   grid-row: 2 / 6;
   grid-column: 4
+}
+
+.calcContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.togBtnContainer {
+  display: flex;
+  margin-bottom: 10px;
+  
+}
+
+p {
+  font-size: 20px;
+  background-color: red;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.togBtn {
+  position: relative;
+  width: 70px;
+  height: 36px;
+  display: inline-block;
+}
+
+.togBtn input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #adb5bd;
+  border-radius: 30px
+}
+
+.toggle:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 6px;
+  bottom: 5px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 30px
+}
+
+input:checked + .toggle {
+  background-color: #f7a072;
+}
+
+input:checked + .toggle:before {
+  transform: translateX(30px);
 }
