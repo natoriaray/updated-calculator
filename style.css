@@ -49,12 +49,16 @@ button {
   font-color: 
 }
 
-.button:hover {
-   background-color: red;
+.btn:hover {
+   background-color: #edede9;
 }
 
-.button:active {
+.btn:active {
   transform: translateY(1px);
+}
+
+.btnNum:focus {
+  background-color: #edede9;
 }
 
 .equalSign {
