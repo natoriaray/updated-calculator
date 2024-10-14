@@ -40,12 +40,17 @@ input {
 }
 
 .btnsContainer {
+  display: flex;
+}
+
+.basicContainer {
   display: grid;
   grid-template-columns: 80px 80px 80px 80px;
   padding-top: 30px;
   justify-content: space-between;
   grid-template-rows: 70px 70px 70px 70px 70px;
   gap: 10px;
+  width: 400px;
 }
 
 button {
@@ -65,14 +70,14 @@ button {
   transform: translateY(1px);
 }
 
-.btnNum:focus {
-  background-color: #edede9;
+.styleBtn:focus {
+  background-color: #ced4da;
 }
 
 .equalSign {
   grid-row: 2 / 6;
   grid-column: 4
-}
+} 
 
 .calcContainer {
   display: flex;
@@ -82,14 +87,15 @@ button {
 .togBtnContainer {
   display: flex;
   margin-bottom: 10px;
-  
+  height: 50px;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
 }
 
 p {
-  font-size: 20px;
-  background-color: red;
-  margin-right: 20px;
-  margin-bottom: 10px;
+  font-size: 25px;
+  margin: 0 20px 0 0;
 }
 
 .togBtn {
@@ -133,4 +139,14 @@ input:checked + .toggle {
 
 input:checked + .toggle:before {
   transform: translateX(30px);
+}
+
+.sciContainer {
+  display: hidden;
+  grid-template-columns: 80px 80px;
+  padding-top: 30px;
+  justify-content: space-between;
+  grid-template-rows: 70px 70px 70px 70px 70px;
+  gap: 10px;
+  margin-right: 10px;
 }
